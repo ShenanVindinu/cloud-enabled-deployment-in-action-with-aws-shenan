@@ -1,52 +1,26 @@
-# Cloud Enabled Deployment In Action with AWS
+# Course Service (Spring Boot + GCP MySQL)
 
-This repository contains four projects:
+This project is a Spring Boot application that connects to a MySQL database hosted on **Google Cloud SQL**.  
+It demonstrates how to manage multiple environments (local & cloud) using **Spring Profiles**.
 
-- course-service (Spring Boot + MySQL)
-- student-service (Spring Boot + MongoDB)
-- media-service (Spring Boot + Local file storage, can be extended to S3/MinIO)
-- frontend-app (React + TypeScript)
+---
 
-## Backend Services
+## Video Demonstration about GCP
+https://drive.google.com/file/d/1-eKZNfG3FEK5yk1XeEaIaYxwpqiuxTZP/view?usp=sharing
 
-### 1. course-service
-- Entity: Course(id, name, duration)
-- Endpoints:
-  - GET /courses
-  - GET /courses/{id}
-  - POST /courses
-  - DELETE /courses/{id}
-- Default port: 8081
-- Configure MySQL settings
+## ⚙️ Prerequisites
+- Java 17+
+- Maven 3+
+- MySQL (local or GCP Cloud SQL)
+- A GCP project with Cloud SQL enabled
 
-### 2. student-service
-- Document: Student(registrationNumber, fullName, address, contact, email)
-- Endpoints:
-  - GET /students
-  - GET /students/{id}
-  - POST /students
-  - DELETE /students/{id}
-- Default port: 8082
-- Configure MongoDB settings
+---
 
-### 3. media-service
-- Resource: files
-- Endpoints:
-  - POST /files (multipart/form-data: file)
-  - GET /files (list)
-  - GET /files/{id} (fetch)
-  - DELETE /files/{id} (delete)
-- Default port: 8083
-- Uses local disk storage at `./data/media` by default (override with env var `MEDIA_STORAGE_DIR`).
 
-## Frontend (frontend-app)
-- React + TypeScript + MUI + Axios + Vite app with 3 sections: Courses, Students, Media
-- Scripts:
-  - npm run dev (Vite dev server)
-  - npm run build (TypeScript build + Vite build)
-  - npm run preview (Preview built app)
+## 🔑 Database Setup
 
-## Build
-
-- Backend: run `mvn -q -e -DskipTests package` at repo root to build services.
-- Frontend: run `npm install` then `npm run dev` inside `frontend-app`.
+### Cloud (for GCP) add this configuration to the spring property file and replace the specified parts from your GCP MySQL instance
+```properties
+spring.datasource.url=jdbc:mysql://<PUBLIC_IP>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=<DB_USER>
+spring.datasource.password=<DB_PASSWORD>

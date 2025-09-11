@@ -19,7 +19,8 @@ https://drive.google.com/file/d/1-eKZNfG3FEK5yk1XeEaIaYxwpqiuxTZP/view?usp=shari
 
 ## 🔑 Database Setup
 
-### Cloud (for GCP) add this configuration to the spring property file and replace the specified parts from your GCP MySQL instance
+### Cloud (for GCP) application-gcp.properties
+## add your credentials here
 ```properties
 spring.datasource.url=jdbc:mysql://<PUBLIC_IP>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=<DB_USER>

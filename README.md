@@ -1,27 +1,27 @@
-# Course Service (Spring Boot + GCP MySQL)
+# Course Service (Spring Boot + GCP MySQL) ☁️⛅🌧️🌪️
 
 This project is a Spring Boot application that connects to a MySQL database hosted on **Google Cloud SQL**.  
-It demonstrates how to manage multiple environments (local & cloud) using **Spring Profiles**.
+It demonstrates managing multiple environments (local & cloud) using **Spring Profiles**.
 
 ---
 
-## Video Demonstration about GCP
+## Video Demonstration about GCP 🥬
 https://drive.google.com/file/d/1-eKZNfG3FEK5yk1XeEaIaYxwpqiuxTZP/view?usp=sharing
 
 ## ⚙️ Prerequisites
-- Java 17+
-- Maven 3+
+- Java 21 LTS
 - MySQL (local or GCP Cloud SQL)
-- A GCP project with Cloud SQL enabled
+- A GCP MySQL Instance
 
 ---
 
 
-## 🔑 Database Setup
+## 📖 Database Setup
 
-### Cloud (for GCP) application-gcp.properties
-## add your credentials here
+### Cloud (for GCP) application-gcp.properties ⛅☁️
+
+#### add your credentials in the specified areas here
 ```properties
-spring.datasource.url=jdbc:mysql://<PUBLIC_IP>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
-spring.datasource.username=<DB_USER>
-spring.datasource.password=<DB_PASSWORD>
+spring.datasource.url=jdbc:mysql://<PUBLIC_GCP_IP>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=<GCP_MYSQL_USER_NAME>
+spring.datasource.password=<GCP_MYSQL_PASSWORD>
